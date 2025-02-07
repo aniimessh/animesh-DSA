@@ -1,20 +1,15 @@
 class Solution {
 public:
-    bool isPalindrome(int n) {
-        long long newN = 0;
-        int dup = n;
-        if (n < 0) {
-            return false;
+    bool isPalindrome(int x) {
+        int copyX = x;
+        if(x < 0) return false;
+        long revNum = 0;
+        while(x != 0){
+            int ld = x % 10;
+            revNum = (revNum*10) + ld;
+            x = x/10;
         }
-        while (n) {
-            int lastDigit = n % 10;
-            newN = newN*10 + lastDigit;
-            n = n /10;
-        }
-        if(newN == dup){
-            return true;
-        }else{
-            return false;
-        }
+        if(revNum == copyX) return true;
+        else return false;
     }
 };
